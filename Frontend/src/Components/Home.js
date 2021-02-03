@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 function Home(){
     return(
         <Container>
-            <h2>You are home</h2>
+            <h2>Welcome Back! You are Home</h2>
         </Container>
     )
 }
