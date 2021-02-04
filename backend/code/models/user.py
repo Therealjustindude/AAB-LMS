@@ -5,7 +5,7 @@ from sqlalchemy import Column, String
 from db import db
 from models.base import BaseMixin
 
-class UsereModel(BaseMixin, db.Model):
+class UserModel(BaseMixin, db.Model):
     '''
     User
     '''
