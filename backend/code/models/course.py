@@ -20,6 +20,6 @@ class CourseModel(BaseMixin, db.Model):
     # method to return dictionary version
     def json(self):
         return {
-                'id': course.id, 
-                'course': course.course
+                'id': self.id, 
+                'course': self.course
             }
