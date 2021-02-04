@@ -2,6 +2,7 @@
 
 ## python imports
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Api
 from sqlalchemy import event
 
@@ -21,6 +22,9 @@ app = Flask(__name__)
 # connect db to app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# enable cross resource sharing
+CORS(app)
 
 # connect flask_restful to app
 api = Api(app)
