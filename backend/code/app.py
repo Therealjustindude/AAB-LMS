@@ -5,7 +5,7 @@ from flask import Flask
 from flask_restful import Api
 
 ## project imports
-
+from resources.course import Courses
 
 #### APP CONFIG
 
@@ -20,6 +20,9 @@ api = Api(app)
 @app.route('/')
 def index():
     return "Hello World"
+
+api.add_resource(Courses, '/backend/courses')
+
 
 # RUN APP
 if __name__ == "__main__":
