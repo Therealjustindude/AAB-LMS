@@ -1,5 +1,6 @@
 import React from "react";
 import {Container, Card, Row, Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const mockCourses = [
     {id:1,
@@ -25,7 +26,7 @@ const mockCourses = [
     
 ]
 
-
+//Make GET call for all courses: /Courses
 
 function Courses(){
     return(
@@ -36,7 +37,7 @@ function Courses(){
                 return (
                     <Col key={course.id} sm={12} md={6} lg={4} xl={4}>
                     <Card>
-                        <Card.Header>{course.name}</Card.Header>
+                        <Card.Header><Link to={`/Courses/${course.name}`}>{course.name}</Link></Card.Header>
                         <Card.Body>
                             <Card.Img variant="top" src="http://www.abcteach.com/free/b/book01_rgb2.jpg"/>
                             <Card.Text className="description-truncate">{course.description}</Card.Text>
