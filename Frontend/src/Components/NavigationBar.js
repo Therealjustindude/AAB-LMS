@@ -7,14 +7,14 @@ function NavigationBar(){
     return (
         <Navbar bg="dark" variant="dark" sticky="top">
             <LinkContainer to="/">
-                <Navbar.Brand>AAB-LMS</Navbar.Brand>
+                <Navbar.Brand>SMPLE</Navbar.Brand>
             </LinkContainer>
             <Nav>
-                <LinkContainer to="/Courses">
-                    <Nav.Link>Courses</Nav.Link>
+                <LinkContainer to="/user/:id/courses">
+                    <Nav.Link>My Courses</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/Profile">
-                    <Nav.Link>Profile</Nav.Link>
+                <LinkContainer to="/user/:id">
+                    <Nav.Link>Settings</Nav.Link>
                 </LinkContainer>
             </Nav>
         </Navbar>
