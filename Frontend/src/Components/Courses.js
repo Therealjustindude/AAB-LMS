@@ -31,7 +31,7 @@ const mockCourses = [
 function Courses(){
     return(
         <Container>
-            This is the courses page
+            <h2>Available Courses</h2>
             <Row>
             {mockCourses.map((course)=>{
                 return (
