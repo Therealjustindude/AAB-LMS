@@ -12,7 +12,11 @@ class BaseModel(object):
     '''
 
     # primary key column - value will be generated on record creation
-    id = Column(String, primary_key=True, default=lambda: str(uuid4()))
+    id = Column(
+            String, 
+            primary_key=True, 
+            default=lambda: str(uuid4())
+    )
 
     # method to upsert record (inserts into database if not exists or updates in database)
     def save_to_db(self):
