@@ -16,8 +16,8 @@ users = [
 for user in users:
     user['email'] = f"{user['first_name'].lower()}@{user['last_name'].lower()}.com"
     user['password'] = 'password'
-    user_model = UserModel(**user)
-    user_model.save_to_db()
+    #user_model = UserModel(**user)
+    #user_model.save_to_db()
 
 
 courses = [
@@ -34,7 +34,7 @@ courses = [
         'course': 'JavaScript'
     }
 ]
-for course in courses:
-    course_model = CourseModel(**course)
-    course_model.save_to_db()
+#for course in courses:
+#    course_model = CourseModel(**course)
+    #course_model.save_to_db()
     

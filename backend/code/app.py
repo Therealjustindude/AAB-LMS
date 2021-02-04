@@ -3,11 +3,16 @@
 ## python imports
 from flask import Flask
 from flask_restful import Api
+from sqlalchemy import event
 
 ## project imports
 from db import db
+from models.user import UserModel
 from models.course import CourseModel
 from resources.course import Courses
+from resources.user import Users
+from seed import users as seed_users, courses as seed_courses
+
 
 #### APP CONFIG
 
@@ -33,9 +38,12 @@ def create_tables():
 
 @app.route('/')
 def index():
+    #[UserModel(**user).save_to_db() for user in seed_users]
+    #[CourseModel(**course).save_to_db() for course in seed_courses]
     return "Hello World"
 
 api.add_resource(Courses, '/backend/courses')
+api.add_resource(Users, '/backend/users')
 
 
 # RUN APP
