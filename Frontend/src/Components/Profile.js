@@ -18,18 +18,15 @@ function Profile() {
 				<StyledForm >
 					<StyledH1>{mockUser.first_name + ' ' + mockUser.last_name}</StyledH1>
                     <br />
-                    <label>Email</label>
-                    <br />
+                    <h5>Email</h5>
 					<span>{mockUser.email}</span>
                     <br />
                     <br />
-                    <label>Password</label>
-                    <br />
+                    <h5>Password</h5>
                     <input style={{ margin: "5px" }} name="total" value={mockUser.password} label="Password" type="password" />	
                     <br />
                     <br />
-                    <label>Bio</label>
-                    <br />
+                    <h5>Bio</h5>
                     <textarea>{mockUser.bio }</textarea>
                 </StyledForm>
 			</EditDebtFormWrapper>
