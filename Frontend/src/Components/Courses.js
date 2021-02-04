@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, Card, CardColumns} from "react-bootstrap";
+import {Container, Card, Row, Col} from "react-bootstrap";
 
 const mockCourses = [
     {id:1,
@@ -31,18 +31,20 @@ function Courses(){
     return(
         <Container>
             This is the courses page
-            <CardColumns>
+            <Row>
             {mockCourses.map((course)=>{
                 return (
-                    <Card key={course.id}>
+                    <Col key={course.id} sm={12} md={6} lg={4} xl={4}>
+                    <Card>
                         <Card.Header>{course.name}</Card.Header>
                         <Card.Body>
                             <Card.Img variant="top" src="http://www.abcteach.com/free/b/book01_rgb2.jpg"/>
-                            <Card.Text>{course.description}</Card.Text>
+                            <Card.Text className="description-truncate">{course.description}</Card.Text>
                         </Card.Body>
                     </Card>
+                    </Col>
                 )
-            })}</CardColumns>
+            })}</Row>
         </Container>
     )
 }
