@@ -3,9 +3,9 @@ from sqlalchemy import Column, String
 
 # project imports
 from db import db
-from models.base import BaseModel
+from models.base import BaseMixin
 
-class CourseModel(BaseModel, db.Model):
+class CourseModel(BaseMixin, db.Model):
     '''
     Course
     '''

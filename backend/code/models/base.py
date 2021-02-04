@@ -6,7 +6,7 @@ from uuid import uuid4
 from db import db
 
 
-class BaseModel(object):
+class BaseMixin(object):
     '''
     Base model - will be inherited by all other models
     '''
