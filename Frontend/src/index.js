@@ -5,11 +5,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// imports for redux
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './store/reducers/indexReducer'
+
+// create redux store
+const store = createStore(rootReducer, applyMiddleware(thunk))
+
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App/>
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
