@@ -5,12 +5,11 @@ import {useSelector} from 'react-redux'
 
 function User() {
     const currentUser = useSelector(state => state.userReducer.user)
-    console.log(currentUser)
     return (
         <Container>
            <EditDebtFormWrapper>
 				<StyledForm >
-					<StyledH1>{currentUser.first_name + ' ' + currentUser.last_name}</StyledH1>
+					<StyledH1>{currentUser.last_name}</StyledH1>
                     <br />
                     <h5>Email</h5>
 					<span>{currentUser.email}</span>
@@ -18,10 +17,6 @@ function User() {
                     <br />
                     <h5>Password</h5>
                     <input style={{ margin: "5px" }} name="total" value={currentUser.password} label="Password" type="password" />	
-                    <br />
-                    <br />
-                    <h5>Bio</h5>
-                    <textarea>{currentUser.bio }</textarea>
                 </StyledForm>
 			</EditDebtFormWrapper>
         </Container>
@@ -29,7 +24,6 @@ function User() {
 }
 
 export default User;
-
 
 const EditDebtFormWrapper = styled.div`
 	display: flex;
