@@ -22,6 +22,12 @@ const mockUserCourses = [
 //Make GET call for baseURL/users/id/courses
 
 function UserCourses(){
+
+    function leaveCourse(courseName){
+        console.log(`You just left ${courseName}`)
+        //would make call to backend to DELETE course from user's MyCourses list
+    }
+
     return(
         <Container>
             <h3>Will Display User Courses</h3>
@@ -34,7 +40,7 @@ function UserCourses(){
                         <Card.Body>
                             <Card.Img variant="top" src="http://www.abcteach.com/free/b/book01_rgb2.jpg"/>
                             <Card.Text className="description-truncate">{course.description}</Card.Text>
-                            <Button variant="danger">Leave Course</Button>
+                            <Button variant="danger" onClick={()=>leaveCourse(course.name)}>Leave Course</Button>
                         </Card.Body>
                     </Card>
                     </Col>
