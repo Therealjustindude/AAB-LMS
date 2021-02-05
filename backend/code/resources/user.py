@@ -5,6 +5,14 @@ from flask_restful import Resource
 from models.user import UserModel
 
 
+class User(Resource):
+    
+    def get(self, id):
+        user = UserModel.query.get(id)
+        if user:
+            return user.json()
+        return {'message': 'User not found'}, 404
+
 class Users(Resource):
 
     def get(self):
