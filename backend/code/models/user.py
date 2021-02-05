@@ -31,8 +31,8 @@ class UserModel(BaseMixin, db.Model):
                 String, 
                 nullable=False
     )
-    enrollments = relationship(
-                    'courses',
+    courses = relationship(
+                    'CourseModel',
                     secondary=enrollments,
                     backref=backref(
                                     'users',
