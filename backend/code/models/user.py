@@ -24,8 +24,7 @@ class UserModel(BaseMixin, db.Model):
     )
     email = Column(
                 String, 
-                nullable=False,
-                unique=True
+                nullable=False
     )
     password = Column(
                 String, 
