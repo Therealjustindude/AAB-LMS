@@ -1,10 +1,13 @@
-
+import React, { useEffect } from 'react'
+import {connect} from 'react-redux'
 import './App.css';
 import Container from "react-bootstrap/Container";
 import Routes from "./Routes"
 import NavigationBar from "./Components/NavigationBar"
+import {getUser} from './store/action/userAction'
 
-function App() {
+function App(props){
+  useEffect(props.getUser(),[])
   return (
       <Container fluid className="App">
         <NavigationBar/>
@@ -13,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, {getUser})(App);
