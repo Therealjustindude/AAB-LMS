@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, Card, Row, Col} from "react-bootstrap";
+import {Container, Card, Row, Col, Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 const mockCourses = [
@@ -41,6 +41,7 @@ function Courses(){
                         <Card.Body>
                             <Card.Img variant="top" src="http://www.abcteach.com/free/b/book01_rgb2.jpg"/>
                             <Card.Text className="description-truncate">{course.description}</Card.Text>
+                            <Button>Join Course</Button>
                         </Card.Body>
                     </Card>
                     </Col>

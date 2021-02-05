@@ -6,6 +6,9 @@
   padding: 0px;
 }
 
+.container {
+  margin-top: 3em;
+}
 .card {
   margin: 1em 0em;
 }
@@ -17,7 +20,28 @@
   overflow: hidden;
 }
 
+.single-course .content, .roster-row .card {
+  padding: 1em;
+  border: rgba(128, 128, 128, 0.288) thin solid;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 20%);
+}
+
 .single-course img {
-  max-width:500px;
-  max-height: 500px;
+  max-width:300px;
+  max-height: 300px;
+}
+
+.roster-row {
+  justify-content: center;
+}
+
+
+/* -----For larger screens----- */
+@media(min-width: 1024px){
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
