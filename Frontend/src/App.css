@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.App.container-fluid {
+  padding: 0px;
+}
+
+.card {
+  margin: 1em 0em;
+}
+
+.description-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.single-course img {
+  max-width:500px;
+  max-height: 500px;
+}
