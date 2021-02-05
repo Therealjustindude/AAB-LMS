@@ -4,10 +4,13 @@ import './App.css';
 import Container from "react-bootstrap/Container";
 import Routes from "./Routes"
 import NavigationBar from "./Components/NavigationBar"
+import { getCourses } from './store/action/coursesAction';
 import {getUser} from './store/action/userAction'
 
-function App({getUser}){
-  useEffect(()=>{getUser()},[getUser])
+function App({getCourses, getUser}){
+  useEffect(() => { getCourses(); getUser(); }, [getCourses, getUser])
+  
+
   return (
       <Container fluid className="App">
         <NavigationBar/>
@@ -16,4 +19,4 @@ function App({getUser}){
   );
 }
 
-export default connect(null, {getUser})(App);
+export default connect(null, {getCourses, getUser})(App);
