@@ -1,9 +1,8 @@
-# python imports
-from sqlalchemy import Column, String, Table, ForeignKey
+# project imports
+from db import db
 
-
-enrollments = Table(
+enrollments = db.Table(
     'enrollments',
-    Column('user_id', String, ForeignKey('users.id')),
-    Column('course_id', String, ForeignKey('courses.id'))
+    db.Column('user_id', db.String, db.ForeignKey('users.id')),
+    db.Column('course_id', db.String, db.ForeignKey('courses.id'))
 )
