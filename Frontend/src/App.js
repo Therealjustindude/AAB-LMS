@@ -6,8 +6,8 @@ import Routes from "./Routes"
 import NavigationBar from "./Components/NavigationBar"
 import {getUser} from './store/action/userAction'
 
-function App(props){
-  useEffect(props.getUser(),[])
+function App({getUser}){
+  useEffect(()=>{getUser()},[getUser])
   return (
       <Container fluid className="App">
         <NavigationBar/>
