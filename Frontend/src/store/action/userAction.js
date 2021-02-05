@@ -11,11 +11,15 @@ export const getUser = () => {
         })
             .then(res => res.json())
             .then(res => { 
-                if (res.error) {
-                    alert("Something went wrong!")
-                } else {
-                    console.log(res)
-                }
+                // if (res.error) {
+                //     alert("Something went wrong!")
+                // } else {
+                //     console.log(res)
+                // }
+                console.log("Here's your results:", res)
+            })
+            .catch(error => {
+                console.log("Error fetching from database:", error)
             })
     })
 }
