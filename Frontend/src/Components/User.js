@@ -1,33 +1,27 @@
 import React from "react";
 import styled from 'styled-components'
-
 import Container from "react-bootstrap/Container";
+import {useSelector} from 'react-redux'
 
-const mockUser = {
-    first_name: "Your",
-    last_name: "Name",
-    email: "test@gmail.com",
-    password: "...",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-
-}
 function User() {
-    return(
+    const currentUser = useSelector(state => state.userReducer.user)
+    console.log(currentUser)
+    return (
         <Container>
            <EditDebtFormWrapper>
 				<StyledForm >
-					<StyledH1>{mockUser.first_name + ' ' + mockUser.last_name}</StyledH1>
+					<StyledH1>{currentUser.first_name + ' ' + currentUser.last_name}</StyledH1>
                     <br />
                     <h5>Email</h5>
-					<span>{mockUser.email}</span>
+					<span>{currentUser.email}</span>
                     <br />
                     <br />
                     <h5>Password</h5>
-                    <input style={{ margin: "5px" }} name="total" value={mockUser.password} label="Password" type="password" />	
+                    <input style={{ margin: "5px" }} name="total" value={currentUser.password} label="Password" type="password" />	
                     <br />
                     <br />
                     <h5>Bio</h5>
-                    <textarea>{mockUser.bio }</textarea>
+                    <textarea>{currentUser.bio }</textarea>
                 </StyledForm>
 			</EditDebtFormWrapper>
         </Container>
