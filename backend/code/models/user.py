@@ -1,9 +1,11 @@
 # python imports
 from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship, backref
 
 # project imports
 from db import db
 from models.base import BaseMixin
+from models.enrollment import enrollments
 
 class UserModel(BaseMixin, db.Model):
     '''
@@ -28,6 +30,14 @@ class UserModel(BaseMixin, db.Model):
     password = Column(
                 String, 
                 nullable=False
+    )
+    enrollments = relationship(
+                    'courses',
+                    secondary=enrollments,
+                    backref=backref(
+                                    'users',
+                                    lazy='dynamic'
+                    )
     )
 
     # method to return dictionary version
