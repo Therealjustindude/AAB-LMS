@@ -26,10 +26,23 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
 
+    def to_json(self):
+        return {
+            'id': self.id, 
+            'name': self.name
+        }
+
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     description = db.Column(db.String)
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description
+        }
 
 
 #### ROUTE CONFIG
@@ -40,11 +53,11 @@ def index():
 
 @app.route('/backend/courses')
 def list_courses():
-    return {'courses': 'list of courses'}
+    return {'courses': [course.to_json() for course in Course.query.all()]}
 
 @app.route('/backend/users')
 def list_users():
-    return {'users': 'list of users'}
+    return {'users': [user.to_json() for user in User.query.all()]}
 
 if __name__ == "__main__":
     app.run(debug=True)
