@@ -55,9 +55,19 @@ def index():
 def list_courses():
     return {'courses': [course.to_json() for course in Course.query.all()]}
 
+@app.route('/backend/courses/<string:course_id>')
+def get_course(course_id):
+    course = Course.query.filter_by(id=course_id).first()
+    return course.to_json()
+
 @app.route('/backend/users')
 def list_users():
     return {'users': [user.to_json() for user in User.query.all()]}
+
+@app.route('/backend/users/<string:user_id>')
+def get_user(user_id):
+    user = User.query.filter_by(id=user_id).first()
+    return user.to_json()
 
 if __name__ == "__main__":
     app.run(debug=True)
