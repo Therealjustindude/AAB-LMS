@@ -9,14 +9,10 @@ function User() {
         <Container>
            <EditDebtFormWrapper>
 				<StyledForm >
-					<StyledH1>{currentUser.last_name}</StyledH1>
+					<StyledH1>{currentUser.first_name + ' ' + currentUser.last_name}</StyledH1>
                     <br />
                     <h5>Email</h5>
-					<span>{currentUser.email}</span>
-                    <br />
-                    <br />
-                    <h5>Password</h5>
-                    <input style={{ margin: "5px" }} name="total" value={currentUser.password} label="Password" type="password" />	
+					<span>{currentUser.email}</span>	
                 </StyledForm>
 			</EditDebtFormWrapper>
         </Container>
