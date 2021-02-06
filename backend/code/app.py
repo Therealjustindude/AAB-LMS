@@ -1,7 +1,7 @@
 #### IMPORTS
 
 ## python imports
-from flask import Flask
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
@@ -64,12 +64,12 @@ def index():
 def list_courses():
     return {'courses': [course.to_json() for course in Course.query.all()]}
 
-@app.route('/backend/courses/<string:course_id>')
+@app.route('/backend/courses/<int:course_id>')
 def get_course(course_id):
     course = Course.query.filter_by(id=course_id).first()
     return course.to_json()
 
-@app.route('/backend/courses/<string:course_id>/users')
+@app.route('/backend/courses/<int:course_id>/users')
 def get_course_users(course_id):
     course = Course.query.filter_by(id=course_id).first()
     return {'users': [user.to_json() for user in course.users]}
@@ -78,15 +78,33 @@ def get_course_users(course_id):
 def list_users():
     return {'users': [user.to_json() for user in User.query.all()]}
 
-@app.route('/backend/users/<string:user_id>')
+@app.route('/backend/users/<int:user_id>')
 def get_user(user_id):
     user = User.query.filter_by(id=user_id).first()
     return user.to_json()
 
-@app.route('/backend/users/<string:user_id>/courses')
+@app.route('/backend/users/<int:user_id>/courses')
 def get_user_courses(user_id):
     user = User.query.filter_by(id=user_id).first()
     return {'courses': [course.to_json() for course in user.courses]}
+
+@app.route('/backend/users/<int:user_id>/courses/<int:course_id>', methods=['GET', 'POST', 'DELETE'])
+def get_user_course(user_id, course_id):
+    user = User.query.filter_by(id=user_id).first()
+    course = Course.query.filter_by(id=course_id).first()
+    
+    if request.method == 'GET':
+        return get_course(course_id)
+
+    if request.method == 'POST':
+        user.courses.append(course)
+        db.session.commit()
+    
+    elif request.method == 'DELETE':
+        user.courses.remove(course)
+        db.session.commit()
+
+    return get_user_courses(user_id)
 
 if __name__ == "__main__":
     app.run(debug=True)
