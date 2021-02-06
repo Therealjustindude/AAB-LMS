@@ -44,6 +44,12 @@ class Course(db.Model):
             'description': self.description
         }
 
+enrollments = db.Table(
+    'enrollments',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+    db.Column('course_id', db.Integer, db.ForeignKey('course.id'), primary_key=True)
+)
+
 
 #### ROUTE CONFIG
 
