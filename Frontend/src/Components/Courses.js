@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, Card, Row, Col} from "react-bootstrap";
+import {Container, Card, Row, Col, Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {useSelector} from 'react-redux'
 
@@ -32,6 +32,12 @@ import {useSelector} from 'react-redux'
 function Courses() {
     const courses = useSelector(state => state.coursesReducer.courses)
     console.log(courses)
+
+    function joinCourse(courseName){
+        console.log(`You have joined ${courseName}`)
+        //would make call to backend here to POST a new course to x user's 'MyCourses' list
+    }
+
     if (courses) {
         return (
             <Container>
@@ -45,6 +51,7 @@ function Courses() {
                             <Card.Body>
                                 <Card.Img variant="top" src="http://www.abcteach.com/free/b/book01_rgb2.jpg"/>
                                 <Card.Text className="description-truncate">WE NEED TO ADD MOCK DESC TO DB</Card.Text>
+                                <Button onClick={()=>joinCourse(course.course)}>Join Course</Button>
                             </Card.Body>
                         </Card>
                         </Col>
