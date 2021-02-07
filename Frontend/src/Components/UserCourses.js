@@ -30,7 +30,7 @@ function UserCourses(){
 
     return(
         <Container>
-            <h3>Will Display User Courses</h3>
+            <h3>My Courses</h3>
             <Row>
             {mockUserCourses.map((course)=>{
                 return (

@@ -4,15 +4,13 @@ import Container from "react-bootstrap/Container";
 import {useSelector} from 'react-redux'
 
 function User() {
-    const currentUser = useSelector(state => state.userReducer.user)
+	const currentUser = useSelector(state => state.userReducer.user)
+	console.log(currentUser)
     return (
         <Container>
            <EditDebtFormWrapper>
 				<StyledForm >
-					<StyledH1>{currentUser.first_name + ' ' + currentUser.last_name}</StyledH1>
-                    <br />
-                    <h5>Email</h5>
-					<span>{currentUser.email}</span>	
+					<StyledH1>{currentUser.name}</StyledH1>	
                 </StyledForm>
 			</EditDebtFormWrapper>
         </Container>

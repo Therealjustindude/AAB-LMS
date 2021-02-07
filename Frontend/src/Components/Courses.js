@@ -47,11 +47,12 @@ function Courses() {
                     return (
                         <Col key={course.id} sm={12} md={6} lg={4} xl={4}>
                         <Card>
-                            <Card.Header><Link to={`/Courses/${course.course}`}>{course.course}</Link></Card.Header>
+                            <Card.Header><Link to={`/Courses/${course.name}`}>{course.name}</Link></Card.Header>
                             <Card.Body>
                                 <Card.Img variant="top" src="http://www.abcteach.com/free/b/book01_rgb2.jpg"/>
-                                <Card.Text className="description-truncate">WE NEED TO ADD MOCK DESC TO DB</Card.Text>
-                                <Button onClick={()=>joinCourse(course.course)}>Join Course</Button>
+                                    <Card.Text className="description-truncate">
+                                    {course.description }</Card.Text>
+                                <Button onClick={()=>joinCourse(course.name)}>Join Course</Button>
                             </Card.Body>
                         </Card>
                         </Col>
